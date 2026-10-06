@@ -1,0 +1,70 @@
+Delete this file when the task is done..
+
+Note: don't forget to enable the virtual env when doing the real tests
+Note: Extract the new tracker version from the old tracker version and migrate it to another folder. The old Tracker version must remain in tact no matter what
+
+Note: DON'T FORGET TO DELETE THE test_id.py file
+------------------------------------------
+next:
+- Run the original Hi old playlist tracker to inspect and save the lost songs witout risk of loss - ok
+- Implement the new PlayId and pathTemp variables in the real functions	- ok
+
+- Implement the bajas system taking into account that i want to include which playlist the baja comes from (pass the dictionary key(playlist) as paramater?)
+- Implement the save menu input in such a way that it's only going to show when all cycles are completed and you write the entire miss dict in one final file report and perhaps on the terminal
+>CRITICAL: AT THE END OF EACH PLAYLIST'S CYCLE CHECK ITS SAVE FILE IS OVERWRITTEN BY ITS CURRENT TEMP FILE IN ORDER TO HAVE IT READY FOR THE NEXT CHECK. SO THERE WON'T BE ANOTHER OPORTUNIY FOR A BACKUP ONCE YOU MOVE THO THE NEXT PLAYLIST IN THE LOOP.
+	    *THE MISS DICT (lost) should be safe in theory until the very end by accumulating items to its final report
+	    *The proposal for now is to allow the "backup saved" option to remain just where it is while move the the "save lost" out to a final menu. 
+	    * as a test print the size of the miss dict in each cycle to notice if it's adding elements properly till the end  
+- Modify the second input menu inside the menu function.. ---
+- Test the program
+
+- locate this line "Creating save2.csv file" and fix it this should not happen -- ok
+
+-Creare the .env file with the secret api key and the code modification for it
+-make the first commit and upload into github
+-start gradually testing it till get the final product
+
+- test Enter - Continue option in menu function => save() => loss() 
+
+
+
+BUGS FOUND:
+- 4 number is bugged for somo reason, it's not the code since it work for the other playlists ids in the loop ans i already checked the id to be correct
+- create a copy of th original application and replace the Hi hardcoded playlist-id for the Mus4's - OK
+
+-Something goes wrong after hitting the option [Enter (or other key) - overwrite temp]. When numbers are selected in reverese like 420.
+ *We still have to analyze what really happens there. in a normal situtation anyway.
+ *when [Enter (or other key) - overwrite temp] is hit both temp() and process() are called in that order. That means that temp file is overwritten and the comparison of saved (previous temp) against this new temp list is done.
+ *Something bad is going on apparently with the Mus2?  Mus2 is reporting lost Hi (0) ---ok
+ *Temp files are being ovewritten incorrectly. Are they even being extracted correctly? ... somethihg with id_title = {} seems odd.. The extraction seems correct
+  Save file is being written inccorectly too (i guess it's cause of it being a copy of the previous temp..)
+  did i over-engineered? if you don't update the save file in each test that causes conflicts the next time? how the incorrect playlist landed in saved to begin with. 
+-Test the sequence in reverse	
+ * gobal variable id_title  - bug found. The playlists are accumulating in each new iteration so the next playlist temp inherits the previous playlist temp to be checked and overwritten
+ *Solution: empty id_title in each new extraction? - ok
+ 
+-Keep testing in sequence.
+
+-Possible Bug found in the in the bajas file / loss() function when in sequence mode? When it found casualties in two playlists it only stored the ones found in the last playlist checked after picking the option (Save loss) at the end. 
+ *However. It's worth to notice that the song not stored was a duplicated song with the same id and title. So perhaps that's the reason.
+ *Test: Try with two songs lost in different playlists but different from each other. I don't need to store a duplicate anyway so it may be a feature instead of a bug.	
+
+
+IDEAS
+
+PERHAPS THE SKIP OPTION SHOULD GO IN THE FIRST INPUT INSTEAD OF THE SECOND -- ok
+
+DONT FORGET TO CREATE THE .env file to store the API KEY and include it into the .gitignore file
+
+
+
+
+
+
+
+
+0. Download Blaz blue
+
+
+save 12345       --> old(temp)
+temp 12345+6789  --> new(temp)
