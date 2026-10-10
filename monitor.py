@@ -116,9 +116,9 @@ def temp(p_temp, p_save):
 
     #figuring out if save exist and has content
     if os.path.exists(p_save):
-        print('-¬File exists') #if save file already exist it already has content
+        print('-¬Save File Exists') #if save file already exist it already has content
     else: 
-        print("-~Creating save file")
+        print("-~Creating Save File")
         save(p_temp, p_save) # if save file doesn't exist it's created now and curent temp content is copied into the created save file
 
     
@@ -178,19 +178,19 @@ def menu(playlist, items): #receiving from  menu(name, names_ids[name])
     pathTemp = items[1]
     pathSave = items[2]
 
-    print('\n\n-------Requesting playlist -------->', playlist)
-    print(playId, pathTemp, pathSave)#<<
+    print('\n\n-------Requesting playlist -------->', playlist,'\n')
+    print(pathTemp, pathSave)#<<
 
     extract(playId)
 
-    print(f'+++++{playlist} **** {id_title}') #<<  test: is the playlis properli extracted?
+    #print(f'+++++{playlist} **** {id_title}') #<<  test: is the playlis properli extracted?
 
     enter = input('\nEnter (or other key) - overwrite temp | S - Skip playlist | X - abort operation: ')
 
     if(enter == 'x' or enter == 'X'):
         raise BreakOut('Program Aborted..') #Abort entire program
     elif(enter == 's' or enter == 'S'):
-        print(f'Skipping for {playlist}') # print with placeholder instead of + 
+        print(f'Skipping {playlist}') # print with placeholder instead of + 
         return True
     else: 
         temp(pathTemp, pathSave)
@@ -265,7 +265,7 @@ elif miss == {}:
     print('No playlist data to save ')
 else: 
     #------ Report -------
-    exit = input('(Enter) Save loss - (X) exit without saving: ')
+    exit = input('\n(Enter) Save loss - (X) exit without saving: ')
 
     if exit == 'x' or exit == 'X':
         pass

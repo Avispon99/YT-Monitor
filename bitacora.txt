@@ -4,6 +4,7 @@ Note: don't forget to enable the virtual env when doing the real tests
 Note: Extract the new tracker version from the old tracker version and migrate it to another folder. The old Tracker version must remain in tact no matter what
 
 Note: DON'T FORGET TO DELETE THE test_id.py file
+      
 ------------------------------------------
 next:
 - Run the original Hi old playlist tracker to inspect and save the lost songs witout risk of loss - ok
@@ -47,14 +48,19 @@ BUGS FOUND:
 
 -Possible Bug found in the in the bajas file / loss() function when in sequence mode? When it found casualties in two playlists it only stored the ones found in the last playlist checked after picking the option (Save loss) at the end. 
  *However. It's worth to notice that the song not stored was a duplicated song with the same id and title. So perhaps that's the reason.
- *Test: Try with two songs lost in different playlists but different from each other. I don't need to store a duplicate anyway so it may be a feature instead of a bug.	
+ *Test: Try with two songs lost in different playlists but different from each other. I don't need to store a duplicate anyway so it may be a feature instead of a bug -- ok
 
+-Afer testing don't forget to remove the print(extracted songs) from the terminal. Only the casualties mus be printed - ok
+
+- Test backup -ok
+
+Success!
 
 IDEAS
 
 PERHAPS THE SKIP OPTION SHOULD GO IN THE FIRST INPUT INSTEAD OF THE SECOND -- ok
 
-DONT FORGET TO CREATE THE .env file to store the API KEY and include it into the .gitignore file
+DONT FORGET TO CREATE THE .env file to store the API KEY and include it into the .gitignore file -- ok
 
 
 
